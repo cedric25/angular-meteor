@@ -85,10 +85,12 @@ Right now we don't need the promise so let's use the second way:
     $scope.parties = $meteor.collection(Parties).subscribe('parties');
 
 It is the same as:
+
     $meteor.subscribe('parties');
     $scope.parties = $meteor.collection(Parties);
     
 But it is a *good practise* to resolve a subscription in state's resolve function:
+
     .state('parties', {
       url: '/parties',
       templateUrl: 'client/parties/views/parties-list.ng.html',
