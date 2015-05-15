@@ -95,12 +95,10 @@ But it is a *good practise* to resolve a subscription in state's resolve functio
       url: '/parties',
       templateUrl: 'client/parties/views/parties-list.ng.html',
       controller: 'PartiesListCtrl',
-      resolve : {
-        'subscribe' : [
-          '$meteor',
-          ($meteor) ->
-            $meteor.subscribe('parties');
-        ]
+      resolve: {
+        subscribe: ['$meteor', function($meteor) {
+          return $meteor.subscribe('parties');
+        }]
       }
     })
 
